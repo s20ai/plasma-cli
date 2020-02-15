@@ -19,6 +19,7 @@ setup(
     zip_safe=False,
     platforms='any',
     install_requires=dependencies,
+    python_requires='>=3',
     entry_points={
         'console_scripts': [
             'plasma = plasma-cli.cli:main',
