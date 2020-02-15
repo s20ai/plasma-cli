@@ -94,7 +94,7 @@ def find_config_file(path):
         return False
     
 
-@hadnle_exceptions
+@handle_exceptions
 def get_config(path='.'):
     try:
         config_file_path = find_config_file(path)
