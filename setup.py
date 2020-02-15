@@ -9,7 +9,7 @@ description = 'CLI for Plasma, a simple ML workflow management tool. Visit docs.
 
 setup(
     name='plasma-cli',
-    version='0.1.0',
+    version='0.1.1',
     url='https://github.com/tabishimran/plasma-cli',
     license='BSD',
     author='Tabish Imran',
