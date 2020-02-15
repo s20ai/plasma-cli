@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
-def handle_exceptions():
+from functools import wraps
+
+def handle_exceptions(f):
     @wraps(f)
     def wrapped_function(*args, **kwargs):
         function_name = f.__name__
