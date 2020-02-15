@@ -3,10 +3,11 @@
 import json
 import os
 from pathlib import Path
+from utils import handle_exceptions
 
 project_config = {}
 
-
+@handle_exceptions
 def generate_project_config(base_path):
     project_config = {}
     project_paths = {}
@@ -22,6 +23,7 @@ def generate_project_config(base_path):
     return project_config
 
 
+@handle_exceptions
 def create_project(project_name):
     global project_config
     project_path = os.getcwd()+'/'+project_name+'/'
@@ -35,6 +37,7 @@ def create_project(project_name):
     return project_config
 
 
+@handle_exceptions
 def load_project(project_path):
     global project_config
     absolute_path = os.path.abspath(project_path)
@@ -54,6 +57,7 @@ def load_project(project_path):
     print('> loaded project '+str(project_name))
 
 
+@handle_exceptions
 def get_project_info():
     global project_config
     project_config = get_config()
@@ -63,6 +67,7 @@ def get_project_info():
     # List models etc ..
 
 
+@handle_exceptions
 def setup_project_directories(project_config):
     for directory_name, directory_path in project_config['paths'].items():
         try:
@@ -71,7 +76,7 @@ def setup_project_directories(project_config):
             print('> '+directory_name+' path already exists')
 
 
-
+@handle_exceptions
 def find_config_file(path):
     try:
         current_path = os.path.abspath(path)
@@ -89,6 +94,7 @@ def find_config_file(path):
         return False
     
 
+@hadnle_exceptions
 def get_config(path='.'):
     try:
         config_file_path = find_config_file(path)

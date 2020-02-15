@@ -2,6 +2,7 @@
 
 import requests
 from project_manager import get_config
+from utils import handle_exceptions
 import os
 import zipfile
 import io
@@ -10,6 +11,7 @@ import importlib.util
 api_url = "https://dfdb32ca.s20.ai/api/v1/components"
 
 
+@handle_exceptions
 def download_component(name):
     plasma_config = get_config()
     print('\n> downloading '+name+' from the component registry')
@@ -27,6 +29,7 @@ def download_component(name):
     print()
 
 
+@handle_exceptions
 def describe_component(name):
     plasma_config = get_config()
     if os.path.exists(plasma_config['paths']['components_path']+name):
@@ -37,6 +40,7 @@ def describe_component(name):
         print('\n> component not found locally\n')
 
 
+@handle_exceptions
 def list_components():
     plasma_config = get_config()
     components_path = plasma_config['paths']['components_path']
@@ -51,6 +55,7 @@ def list_components():
         print('\n> no components have been downloaded\n')
 
 
+@handle_exceptions
 def search_components(query):
     print('\n> searching '+query+' in the component registry')
     response = requests.get(api_url+'/search/'+query).json()
@@ -66,6 +71,7 @@ def search_components(query):
         print('\n> no results found')
 
 
+@handle_exceptions
 def component_loader(component_name, component_path):
     spec = importlib.util.spec_from_file_location(
         component_name, component_path)
