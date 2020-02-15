@@ -76,8 +76,9 @@ def run_workflow(workflow_name):
 
 @click.command(name="schedule", help="schedule workflows")
 @click.argument('workflow_name', required=True)
-def schedule_workflow(workflow_name):
-    os.system('crontab -e')
+@click.argument('cron_rule',required=True)
+def schedule_workflow(workflow_name,cron_rule):
+    workflow_manager.schedule_workflow(workflow_name,cron_rule)
 
 
 # Component command group
