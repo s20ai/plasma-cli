@@ -22,7 +22,7 @@ setup(
     python_requires='>=3',
     entry_points={
         'console_scripts': [
-            'plasma = plasma-cli.cli:main',
+            'plasma = plasmacli.cli:main',
         ],
     },
     classifiers=[
