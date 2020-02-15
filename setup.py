@@ -3,7 +3,9 @@ CLI for Plasma
 """
 from setuptools import find_packages, setup
 
-dependencies = ['click']
+dependencies = ['click','PyYAML','requests']
+
+description = 'CLI for Plasma, a simple ML workflow management tool. Visit docs.s20.ai to read the docs.'
 
 setup(
     name='plasma-cli',
@@ -12,7 +14,7 @@ setup(
     license='BSD',
     author='Tabish Imran',
     author_email='vector@s20.ai',
-    description='CLI for Plasma',
+    description=description
     long_description=__doc__,
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
