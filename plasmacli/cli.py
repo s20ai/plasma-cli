@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-import plasmacli.component_manager
-import plasmacli.workflow_manager
-import plasmacli.project_manager
+import plasmacli.component_manager as component_manager
+import plasmacli.workflow_manager as workflow_manager
+import plasmacli.project_manager as project_manager
 import click
 import os
 import collections
