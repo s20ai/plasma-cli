@@ -12,7 +12,7 @@ def daemon_ping():
         if response.status_code == 200:
             output = True
     except Exception as e:
-        print(' > Unable to connect to plasma daemon')
+        print('> Unable to connect to plasma daemon')
         return False
     
 
@@ -24,9 +24,9 @@ def run_workflow(workflow_id):
         json['action'] = 'start'
         response = requests.post(host+'/api/workflow/'+workflow_id+'/run')
         if response.status_code == 201:
-            print(' > Executing workflow')
+            print('> Executing workflow')
         else:
-            print(' > Unable to execute_workflow')
+            print('> Unable to execute_workflow')
     else:
         return False
 
@@ -39,9 +39,9 @@ def stop_workflow(workflow_id):
         json['action'] = 'stop'
         response = requests.post(host+'/api/workflow/'+workflow_id+'/run')
         if response.status_code == 200:
-            print(' > Stopping workflow')
+            print('> Stopping workflow')
         else:
-            print(' > Unable to execute_workflow')
+            print('> Unable to execute_workflow')
     else:
         return False
 
@@ -54,9 +54,9 @@ def schedule_workflow(workflow_id,cron_rule):
         json['cron-rule'] = cron_rule
         response = requests.post(host+'/api/workflow/'+workflow_id+'/schedule')
         if response.status_code == 200:
-            print(' > Workflow Scheduled')
+            print('> Workflow Scheduled')
         else:
-            print(' > Unable to schedule workflow')
+            print('> Unable to schedule workflow')
     else:
         return False
 
@@ -68,9 +68,9 @@ def schdeule_workflow(workflow_id,cron_rule):
         json['cron-rule'] = cron_rule
         response = requests.post(host+'/api/workflow/'+workflow_id+'/schedule')
         if response.status_code == 200:
-            print(' > Stopping workflow')
+            print('> Stopping workflow')
         else:
-            print(' > Unable to execute_workflow')
+            print('> Unable to execute_workflow')
     else:
         return False
 
@@ -80,11 +80,11 @@ def list_workflows():
     workflows_path = plasma_config['paths']['workflows_path']
     workflows = os.listdir(workflows_path)
     if workflows:
-        print('\n> listing workflows ')
+        print('> listing workflows ')
         for item in workflows:
             if item.endswith('.yml'):
                 print('\t- '+item)
         print()
     else:
-        print('\n> no workflows have been created\n')
+        print('> no workflows have been created\n')
 
