@@ -67,9 +67,9 @@ def run_workflow(workflow_name):
     workflow_manager.run_workflow(workflow_name)
 
 
-@click.command(name="run", help="run workflow")
+@click.command(name="stop", help="stop workflow")
 @click.argument('workflow_name', required=True)
-def run_workflow(workflow_name):
+def stop_workflow(workflow_name):
     print('\n> Stopping workflow '+workflow_name+'\n')
     workflow_manager.stop_workflow(workflow_name)
 
@@ -117,6 +117,7 @@ def build_cli():
     project.add_command(describe_project)
     workflow.add_command(list_workflow)
     workflow.add_command(run_workflow)
+    workflow.add_command(stop_workflow)
     workflow.add_command(schedule_workflow)
     component.add_command(list_component)
     component.add_command(search_component)

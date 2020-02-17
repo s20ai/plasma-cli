@@ -47,7 +47,21 @@ def stop_workflow(workflow_id):
 
 
 
-def stop_workflow(workflow_id,cron_rule):
+def schedule_workflow(workflow_id,cron_rule):
+    daemon_available = daemon_ping()
+    if daemon_available:
+        json = {}
+        json['cron-rule'] = cron_rule
+        response = requests.post(host+'/api/workflow/'+workflow_id+'/schedule')
+        if response.status_code == 200:
+            print(' > Workflow Scheduled')
+        else:
+            print(' > Unable to schedule workflow')
+    else:
+        return False
+
+
+def schdeule_workflow(workflow_id,cron_rule):
     daemon_available = daemon_ping()
     if daemon_available:
         json = {}
