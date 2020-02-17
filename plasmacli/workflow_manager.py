@@ -2,6 +2,7 @@
 
 import requests
 from plasmacli.project_manager import get_config
+import os
 
 host = 'http://localhost:8196'
 
