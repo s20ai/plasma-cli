@@ -39,7 +39,7 @@ def create_plasma_project(project_name):
 @click.argument('project_path', required=True)
 @click.command(name="load", help="loads a plasma project", )
 def load_plasma_project(project_path):
-    project_managerload_project(project_path)
+    project_manager.load_project(project_path)
 
 
 @click.command(name="info", help="displays plasma project info", )
