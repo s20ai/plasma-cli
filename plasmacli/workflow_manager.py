@@ -62,7 +62,6 @@ def stop_workflow(workflow_id,cron_rule):
 
 def list_workflows():
     plasma_config = get_config()
-    logger.debug('Executing list workflows')
     workflows_path = plasma_config['paths']['workflows_path']
     workflows = os.listdir(workflows_path)
     if workflows:
