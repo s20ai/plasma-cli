@@ -3,7 +3,7 @@
 import json
 import os
 from pathlib import Path
-from utils import handle_exceptions
+from plasmacli.utils import handle_exceptions
 
 project_config = {}
 

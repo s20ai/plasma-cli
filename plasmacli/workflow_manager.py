@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import requests
-from project_manager import get_config
+from plasmacli.project_manager import get_config
 
 host = 'http://localhost:8196'
 

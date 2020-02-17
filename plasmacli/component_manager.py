@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 import requests
-from project_manager import get_config
-from utils import handle_exceptions
+from plasmacli.project_manager import get_config
+from plasmacli.utils import handle_exceptions
 import os
 import zipfile
 import io

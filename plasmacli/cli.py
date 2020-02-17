@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-import component_manager
-import workflow_manager
-import project_manager
+import plasmacli.component_manager
+import plasmacli.workflow_manager
+import plasmacli.project_manager
 import click
 import os
 import collections
@@ -127,6 +127,11 @@ def build_cli():
     cli.add_command(workflow)
     return cli
 
-if __name__=="__main__":
+
+def main():
     cli = build_cli()
     cli()
+
+
+if __name__=="__main__":
+    main()
