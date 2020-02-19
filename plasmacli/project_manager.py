@@ -4,6 +4,8 @@ import json
 import os
 from pathlib import Path
 from plasmacli.utils import handle_exceptions
+from xxhash import xxh64_hexdigest
+from random import randint
 
 project_config = {}
 
@@ -14,6 +16,7 @@ def generate_project_config(base_path):
     project_config['paths'] = project_paths
     base_path = os.path.abspath(base_path)
     project_config['project_name'] = os.path.basename(base_path)
+    project_config['project_id'] = xxh64_hexdigest(base_path+str(randint))
     project_paths['project_path'] = base_path
     project_paths['log_path'] = os.path.join(base_path,'logs/')
     project_paths['components_path'] = os.path.join(base_path,'components/')
