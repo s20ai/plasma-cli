@@ -3,6 +3,7 @@
 import requests
 from plasmacli.project_manager import get_config
 import os
+from xxhash import xxh32_hexdigest
 
 host = 'http://localhost:8196'
 
@@ -16,10 +17,15 @@ def daemon_ping():
         return False
     
 
-def run_workflow(workflow_id):
+def run_workflow(workflow_name):
+    config = get_config()
     daemon_available = daemon_ping()
     if daemon_available:
+        workflow_id = xxh32_hexdigest(workflow_name)
         json = {}
+        json['project-config'] = config
+        json['workflow-name'] = workflow_name
+        json['workflow-id'] = workflow_id
         json['host'] = 'local'
         json['action'] = 'start'
         response = requests.post(host+'/api/workflow/'+workflow_id+'/run')
