@@ -3,7 +3,7 @@ CLI for Plasma
 """
 from setuptools import find_packages, setup
 
-dependencies = ['click','PyYAML','requests']
+dependencies = ['click','PyYAML','requests','xxhash']
 
 description = 'CLI for Plasma, a simple ML workflow management tool. Visit docs.s20.ai to read the docs.'
 
